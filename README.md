@@ -18,18 +18,18 @@
 ### STEPS:
 
 #### 1. Clone the repository:
-"""bash
+```bash
 https://github.com/whajji1026/kidney-disease-mlops
-"""
+```
 
 #### 2. Create a conda environment after opening the repository:
-"""bash
+```bash
 conda create -n cnncls python=3.8 -y 
-conda activate cnncls """
+conda activate cnncls ```
 
 #### 3. Install the requirements:
-"""bash
+```bash
 pip install -r requirements.txt
-"""
+```
 
 
