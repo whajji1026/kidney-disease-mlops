@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: cnnClassifier
+Version: 0.0.0
+Summary: a small pyhton package for CNN app
+Home-page: https://github.com/whajji1026/kidney-disease-mlops
+Author: whajji1026
+Author-email: wyeemhajjy26@gmail.com
+Project-URL: Bug Tracker, https://github.com/whajji1026/kidney-disease-mlops/issues
+
+# kidney-disease-mlops
