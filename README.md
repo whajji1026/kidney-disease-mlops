@@ -34,4 +34,3 @@ conda activate cnncls
 pip install -r requirements.txt
 ```
 
-
