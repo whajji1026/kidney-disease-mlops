@@ -56,3 +56,12 @@ $env:MLFLOW_TRACKING_USERNAME = "whajji1026"
 $env:MLFLOW_TRACKING_PASSWORD = "d432069e83aeb456c8bdd0865fc17116e810c5c2"
 
 ```
+
+#### 5. dvc:
+```bash
+dvc init
+dvc repro
+
+```
+
+
