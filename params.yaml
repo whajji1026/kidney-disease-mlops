@@ -4,7 +4,7 @@ BATCH_SIZE: 16
 INCLUDE_TOP: False #to not include the Top which are 
             #the dense layers of VGG16 
             #(those will be replaced by our custom output layers)
-EPOCHS: 1
+EPOCHS: 2
 CLASSES: 2  #normal or with tumor
 WEIGHTS: imagenet #we are using a pretrained model trained on imagenet
 LEARNING_RATE: 0.01
