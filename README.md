@@ -61,7 +61,7 @@ $env:MLFLOW_TRACKING_PASSWORD = "d432069e83aeb456c8bdd0865fc17116e810c5c2"
 ```bash
 dvc init
 dvc repro
-
+dvc dag
 ```
 
 
