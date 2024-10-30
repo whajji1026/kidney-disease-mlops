@@ -67,8 +67,12 @@ dvc dag
 
 #### 6. azure ci/cd deployment with github actions
 
+```bash
+
 docker build -t ctscan.azurecr.io/kidneyscan:latest .
 
 docker login ctscan.azurecr.io
 
 docker push ctscan.azurecr.io/kidneyscan:latest 
+
+```
