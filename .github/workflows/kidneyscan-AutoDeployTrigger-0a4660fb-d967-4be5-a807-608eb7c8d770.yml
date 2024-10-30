@@ -1,0 +1,48 @@
+name: Trigger auto deployment for kidneyscan
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '**'
+    - '.github/workflows/kidneyscan-AutoDeployTrigger-0a4660fb-d967-4be5-a807-608eb7c8d770.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.KIDNEYSCAN_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.KIDNEYSCAN_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.KIDNEYSCAN_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}
+          _dockerfilePathKey_: _dockerfilePath_
+          registryUrl: ctscan.azurecr.io
+          registryUsername: ${{ secrets.KIDNEYSCAN_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.KIDNEYSCAN_REGISTRY_PASSWORD }}
+          containerAppName: kidneyscan
+          resourceGroup: ctscan
+          imageToBuild: ctscan.azurecr.io/kidneyscan:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
